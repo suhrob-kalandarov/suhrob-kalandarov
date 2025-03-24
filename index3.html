@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suhrob Kalandarov - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-width: 300px; /* Sidebar kengligi oshirildi */
+            --main-color: #2A2F4F;
+            --secondary-color: #4B56D2;
+            --accent-color: #82C3EC;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #000;
+            margin-left: var(--sidebar-width);
+        }
+
+        /* Sidebar yangi stil */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--main-color);
+            padding: 20px;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-brand {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-brand img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid white;
+        }
+
+        .sidebar-brand h4 {
+            font-size: 1.1rem;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .social-links-sidebar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-links-sidebar a {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links-sidebar a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .nav-item {
+            margin: 10px 0;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background: var(--secondary-color);
+        }
+
+        .nav-link i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Home section */
+        .hero-section {
+            height: 100vh;
+            background: url('img.png') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 20%;
+            left: 5%;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+        }
+
+        /* About section */
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .about-text {
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .about-details p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-details i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Footer styling */
+        footer {
+            background: rgba(154, 179, 245, 0.76);;
+            color: black;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height:75px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.87);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 70%;
+            object-fit: contain;
+        }
+
+        .footer-info {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+                z-index: 1000;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 999;
+                font-size: 1.5rem;
+                color: var(--main-color);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Sidebar Navigation -->
+<nav class="sidebar">
+    <div class="sidebar-brand">
+        <img src="my-profile-img.jpg" alt="Profile">
+        <h4>Suhrob Kalandarov</h4>
+        <div class="social-links-sidebar">
+            <a href="mailto:suhrobqalandarov27@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://t.me/SuhrobKalandarov">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://linkedin.com/in/suhrob-qalandarov-4a20b5293">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/suhrob-kalandarov">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a href="#home" class="nav-link">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#about" class="nav-link">
+                <i class="fas fa-user"></i>
+                About
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#skills" class="nav-link">
+                <i class="fas fa-code"></i>
+                Skills
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#projects" class="nav-link">
+                <i class="fas fa-briefcase"></i>
+                Projects
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Mobile Menu Toggle -->
+<button class="menu-toggle d-lg-none">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Suhrob Kalandarov</h1>
+            <p>Java Backend Developer</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+
+                    <div class="about-details">
+                        <p><i class="fas fa-birthday-cake"></i>Birthday: 1 May 1995</p>
+                        <p><i class="fas fa-user-clock"></i>Age: 30</p>
+                        <p><i class="fas fa-globe"></i>Website: www.example.com</p>
+                        <p><i class="fas fa-graduation-cap"></i>Degree: Master</p>
+                        <p><i class="fas fa-phone"></i>Phone: +123 456 7890</p>
+                        <p><i class="fas fa-envelope"></i>Email: email@example.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i>City: New York, USA</p>
+                        <p><i class="fas fa-user-tie"></i>Freelance: Available</p>
+                    </div>
+                </div>
+                <img src="my-profile-img.jpg" alt="About" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="H-logo.png" alt="Logo">
+            </div>
+            <div class="footer-info">
+                <p>123 Street, Anytown, USA 12345</p>
+                <p>© 2025 Portfolio. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+        document.querySelector('.sidebar').classList.toggle('active');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
