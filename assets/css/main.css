@@ -56,7 +56,7 @@
 
 
 :root {
-    --sidebar-width: 300px;
+    --sidebar-width: 85px;
     --main-color: #2A2F4F;
     --sidebar-color: rgba(3, 3, 35, 0.98);
     --secondary-color: #4B56D2;
@@ -67,7 +67,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--background-color);
+    background: black;
     color: var(--text-color);
     margin-left: var(--sidebar-width);
     overflow-x: hidden;
@@ -193,7 +193,7 @@ body {
 .hero-content {
     position: absolute;
     left: 3%; /* Chap tomondan 20% masofa */
-    top: 52%; /* Yuqoridan 50% masofa */
+    top: 10%; /* Yuqoridan 50% masofa */
     transform: translateY(-50%); /* Vertikal markazlash */
     text-align: left; /* Matnni chapga o'tkazish */
     color: white; /* Matn rangi oq */
@@ -201,7 +201,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem; /* Kattaroq shrift */
+    font-size: 2.5rem; /* Kattaroq shrift */
     margin-bottom: 8px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Matn soyasi */
     font-weight: bold; /* Qalin shrift */
