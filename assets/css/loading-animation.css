@@ -109,11 +109,32 @@
     }
 }
 
+.loader-logo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #2a2f4f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(130, 195, 236, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.loader-logo::after {
+    content: "S";
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+}
+
 .loader-text {
     margin-top: 30px;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    font-weight: 450;
+    font-weight: 500;
     color: #fff;
     letter-spacing: 3px;
     position: relative;
