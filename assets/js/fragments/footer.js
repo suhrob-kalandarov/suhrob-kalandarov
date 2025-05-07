@@ -1,10 +1,9 @@
-// Load the footer component
 document.addEventListener("DOMContentLoaded", () => {
     const footerContainer = document.getElementById("footer-container")
 
     if (footerContainer) {
         // Fetch the footer HTML
-        fetch("/home/fragments/footer.html")
+        fetch("/fragments/footer.html")
             .then((response) => response.text())
             .then((html) => {
                 footerContainer.innerHTML = html
@@ -54,27 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Home</span>
                             </a>
-                            <a href="/home/about.html" class="footer-link">
+                            <a href="/about.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>About</span>
                             </a>
-                            <a href="/home/skills.html" class="footer-link">
+                            <a href="/skills.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Skills</span>
                             </a>
-                            <a href="/home/experience.html" class="footer-link">
+                            <a href="/experience.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Experience</span>
                             </a>
-                            <a href="/home/projects.html" class="footer-link">
+                            <a href="/projects.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Projects</span>
                             </a>
-                            <a href="/home/profiles.html" class="footer-link">
+                            <a href="/profiles.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Profiles</span>
                             </a>
-                            <a href="/home/contact.html" class="footer-link">
+                            <a href="/contact.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Contact</span>
                             </a>
@@ -160,7 +159,7 @@ function initFooter() {
     }
 
     // Back to top button functionality
-    const backToTopButton = document.getElementById("backToTop")
+    const backToTopButton = document.getElementById("backToTop") || document.querySelector(".back-to-top")
     if (backToTopButton) {
         // Show/hide back to top button based on scroll position
         window.addEventListener("scroll", () => {
@@ -175,7 +174,7 @@ function initFooter() {
         backToTopButton.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth"
+                behavior: "smooth",
             })
         })
     }
