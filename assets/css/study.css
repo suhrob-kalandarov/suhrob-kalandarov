@@ -2,8 +2,6 @@
 .experience {
     background-color: #f8f9fa;
     position: relative;
-    /* Add padding to the bottom to create space for the wave overlap */
-    padding-bottom: 80px;
 }
 
 .dark-mode .experience {
@@ -272,36 +270,6 @@
 
 .experience-card:hover .experience-image img {
     transform: scale(1.05);
-}
-
-/* Add this new section to make the Work Experience title overlap with the footer wave */
-.section-title {
-    position: relative;
-    z-index: 10; /* Higher z-index to appear above the footer wave */
-}
-
-/* Make the Work Experience text appear above the footer wave */
-#experience .section-title h2 {
-    position: relative;
-    margin-bottom: 50px;
-}
-
-/* Create a special class for the footer overlap effect */
-.experience .container {
-    position: relative;
-}
-
-/* Position the section title to overlap with the footer wave */
-.experience .section-title {
-    position: relative;
-}
-
-/* Style for the Work Experience text that overlaps with the footer wave */
-.experience .section-title h2 {
-    color: #fff; /* White text color */
-    position: relative;
-    z-index: 10;
-    margin-bottom: 30px;
 }
 
 /* Responsive Styles */
