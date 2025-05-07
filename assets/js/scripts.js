@@ -2,54 +2,43 @@
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector(".loading-screen").classList.add("hidden")
-    }, 1000) // Reduced from 1500ms to 1000ms for better UX
+    }, 1500)
 })
 
-// Modify the theme toggle code in scripts.js to work with the navbar toggle
-// Replace the existing theme toggle code with this:
-
 // Theme Toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.querySelector(".theme-toggle:not(.navbar-theme-toggle)")
-    if (themeToggle) {
-        const body = document.querySelector("body")
-        const icon = themeToggle.querySelector("i")
+const themeToggle = document.querySelector(".theme-toggle")
+const body = document.querySelector("body")
+const icon = themeToggle.querySelector("i")
 
-        // Check for saved theme preference
-        if (localStorage.getItem("theme") === "dark") {
-            body.classList.add("dark-mode")
-            icon.classList.remove("fa-moon")
-            icon.classList.add("fa-sun")
-        }
+// Check for saved theme preference
+if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode")
+    icon.classList.remove("fa-moon")
+    icon.classList.add("fa-sun")
+}
 
-        themeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode")
+themeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode")
 
-            if (body.classList.contains("dark-mode")) {
-                icon.classList.remove("fa-moon")
-                icon.classList.add("fa-sun")
-                localStorage.setItem("theme", "dark")
-            } else {
-                icon.classList.remove("fa-sun")
-                icon.classList.add("fa-moon")
-                localStorage.setItem("theme", "light")
-            }
-        })
+    if (body.classList.contains("dark-mode")) {
+        icon.classList.remove("fa-moon")
+        icon.classList.add("fa-sun")
+        localStorage.setItem("theme", "dark")
+    } else {
+        icon.classList.remove("fa-sun")
+        icon.classList.add("fa-moon")
+        localStorage.setItem("theme", "light")
     }
 })
 
 // Initialize AOS
-let AOS // Declare AOS here
 document.addEventListener("DOMContentLoaded", () => {
-    if (typeof AOS !== "undefined") {
-        AOS.init({
-            duration: 800,
-            easing: "ease-in-out",
-            once: true,
-            mirror: false,
-            disable: "mobile", // Disable on mobile for better performance
-        })
-    }
+    AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+    })
 })
 
 // Canvas Background Animation (for home page)
@@ -60,10 +49,8 @@ if (document.getElementById("canvas")) {
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
 
-    // Adjust point count based on screen size for better performance
-    const isMobile = window.innerWidth < 768
-    const pointCount = isMobile ? 80 : 150
-    const maxDistance = isMobile ? 120 : 180
+    const pointCount = 150
+    const maxDistance = 180
     const points = []
 
     // Create random points
@@ -254,26 +241,87 @@ if (document.querySelector(".statement-container")) {
     animateStatements()
 }
 
-// Project Items Animation
-if (document.querySelector(".projects-container")) {
-    const projectItems = document.querySelectorAll(".project-item")
+// Mobile Menu
+const mobileMenuBtn = document.querySelector(".mobile-menu-btn")
+const navLinks = document.querySelector(".nav-links")
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible")
-                }
-            })
-        },
-        { threshold: 0.1 },
-    )
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active")
+        mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>'
+    })
 
-    projectItems.forEach((item, index) => {
-        // Add staggered delay for smoother animation
+    // Close mobile menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active")
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>'
+        })
+    })
+}
+
+// Profile Card Animations
+if (document.querySelector(".profiles-container")) {
+    const profileCards = document.querySelectorAll(".profile-card")
+
+    profileCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            card.classList.add("animate")
+            setTimeout(() => {
+                card.classList.remove("animate")
+            }, 800)
+        })
+    })
+}
+
+// Contact Form
+if (document.getElementById("contactForm")) {
+    const contactForm = document.getElementById("contactForm")
+
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+
+        const name = document.getElementById("name").value
+        const email = document.getElementById("email").value
+        const subject = document.getElementById("subject").value
+        const message = document.getElementById("message").value
+
+        // Check for admin credentials
+        if (
+            name === "admin" &&
+            email === "admin@gmail.com" &&
+            subject === "i'm admin" &&
+            message === "i'm login admin page"
+        ) {
+            // Redirect to admin page
+            window.location.href = "/admin"
+            return
+        }
+
+        // Regular form submission
+        const submitBtn = this.querySelector(".submit-btn")
+        const originalText = submitBtn.innerHTML
+
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...'
+        submitBtn.disabled = true
+
+        // Simulate form submission
         setTimeout(() => {
-            observer.observe(item)
-        }, index * 100)
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!'
+            submitBtn.style.backgroundColor = "#28a745"
+
+            // Reset form
+            this.reset()
+
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText
+                submitBtn.disabled = false
+                submitBtn.style.backgroundColor = ""
+            }, 3000)
+        }, 2000)
     })
 }
 
@@ -285,69 +333,4 @@ document.addEventListener("DOMContentLoaded", () => {
         const height = img.height || 200
         img.src = `https://via.placeholder.com/${width}x${height}`
     })
-})
-
-// Add this code at the end of the file to ensure the back-to-top button works on all pages
-window.addEventListener("load", () => {
-    // Initialize back to top button if it exists
-    const backToTopButton = document.querySelector(".back-to-top")
-    if (backToTopButton) {
-        let lastScrollTop = 0
-        const scrollThreshold = 300
-        const bottomOffset = 840 // Distance from bottom in pixels
-
-        function updateButtonPosition() {
-            // Calculate position from bottom of document
-            const totalHeight = document.documentElement.scrollHeight
-            const viewportHeight = window.innerHeight
-            const currentScroll = window.scrollY
-
-            // Calculate how far we are from the bottom of the document
-            const distanceFromBottom = totalHeight - (currentScroll + viewportHeight)
-
-            // If we're close to the bottom, adjust the position to maintain the 840px from bottom
-            if (distanceFromBottom < bottomOffset) {
-                backToTopButton.style.bottom = `${bottomOffset - distanceFromBottom}px`
-            } else {
-                backToTopButton.style.bottom = "30px"
-            }
-        }
-
-        function handleScroll() {
-            const currentScrollTop = window.scrollY || document.documentElement.scrollTop
-
-            // Show button when scrolled down enough
-            if (currentScrollTop > scrollThreshold) {
-                // Only show when scrolling down
-                if (currentScrollTop > lastScrollTop) {
-                    backToTopButton.classList.add("active")
-                } else {
-                    // Hide when scrolling up
-                    backToTopButton.classList.remove("active")
-                }
-
-                // Update button position
-                updateButtonPosition()
-            } else {
-                // Always hide when near the top
-                backToTopButton.classList.remove("active")
-            }
-
-            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop
-        }
-
-        // Add scroll event listener
-        window.addEventListener("scroll", handleScroll)
-
-        // Add click event to scroll to top
-        backToTopButton.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            })
-        })
-
-        // Initial check
-        handleScroll()
-    }
 })
