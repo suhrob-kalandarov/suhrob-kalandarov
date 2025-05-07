@@ -15,13 +15,7 @@
     overflow: hidden;
 }
 
-.footer-wave-top svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-}
+
 
 /* Main Footer Content */
 .footer-main {
