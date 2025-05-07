@@ -2,7 +2,7 @@
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector(".loading-screen").classList.add("hidden")
-    }, 1500)
+    }, 1000) // Reduced from 1500ms to 1000ms for better UX
 })
 
 // Theme Toggle
@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "ease-in-out",
         once: true,
         mirror: false,
+        disable: 'mobile' // Disable on mobile for better performance
     })
 })
 
@@ -49,8 +50,10 @@ if (document.getElementById("canvas")) {
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
 
-    const pointCount = 150
-    const maxDistance = 180
+    // Adjust point count based on screen size for better performance
+    const isMobile = window.innerWidth < 768
+    const pointCount = isMobile ? 80 : 150
+    const maxDistance = isMobile ? 120 : 180
     const points = []
 
     // Create random points
@@ -256,8 +259,11 @@ if (document.querySelector(".projects-container")) {
         { threshold: 0.1 },
     )
 
-    projectItems.forEach((item) => {
-        observer.observe(item)
+    projectItems.forEach((item, index) => {
+        // Add staggered delay for smoother animation
+        setTimeout(() => {
+            observer.observe(item)
+        }, index * 100)
     })
 }
 
