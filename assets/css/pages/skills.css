@@ -1,0 +1,101 @@
+/* Skills Page Specific Styles */
+.skills.page-content {
+    position: relative;
+    z-index: 1;
+    background-color: var(--background-color);
+}
+
+.skills .skill-category {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .skills .skill-category {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skills .skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.skills .skill-category h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.skills .skill-category h3::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    bottom: 0;
+    left: 0;
+}
+
+.skills .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 25px;
+}
+
+.skills .skill-item {
+    padding: 25px 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.skills .skill-icon {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.skills .skill-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .skills .skill-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills .skill-category {
+        padding: 25px;
+    }
+
+    .skills .skill-category h3 {
+        font-size: 1.8rem;
+    }
+
+    .skills .skill-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .skills .skill-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills .skill-category h3 {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,69 @@
+/* About Page Specific Styles */
+.about.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about .about-content {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: var(--box-shadow);
+    margin-top: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.dark-mode .about .about-content {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.about .about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.about .statement-container {
+    height: 150px;
+    margin: 30px auto 50px;
+    max-width: 900px;
+}
+
+.about .statement {
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .about .about-content {
+        padding: 30px;
+    }
+
+    .about .statement {
+        font-size: 1.6rem;
+    }
+
+    .about .statement-container {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about .about-content {
+        padding: 25px;
+    }
+
+    .about .statement {
+        font-size: 1.4rem;
+    }
+
+    .about .statement-container {
+        height: 200px;
+    }
+}
