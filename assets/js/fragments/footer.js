@@ -53,27 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Home</span>
                             </a>
-                            <a href="/about.html" class="footer-link">
+                            <a href="/home/about.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>About</span>
                             </a>
-                            <a href="/skills.html" class="footer-link">
+                            <a href="/home/skills.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Skills</span>
                             </a>
-                            <a href="/experience.html" class="footer-link">
+                            <a href="/home/experience.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Experience</span>
                             </a>
-                            <a href="/projects.html" class="footer-link">
+                            <a href="/home/projects.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Projects</span>
                             </a>
-                            <a href="/profiles.html" class="footer-link">
+                            <a href="/home/profiles.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Profiles</span>
                             </a>
-                            <a href="/contact.html" class="footer-link">
+                            <a href="/home/contact.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Contact</span>
                             </a>
@@ -174,7 +174,7 @@ function initFooter() {
         backToTopButton.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth",
+                behavior: "smooth"
             })
         })
     }
