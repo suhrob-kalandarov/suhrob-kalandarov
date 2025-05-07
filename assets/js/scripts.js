@@ -241,87 +241,23 @@ if (document.querySelector(".statement-container")) {
     animateStatements()
 }
 
-// Mobile Menu
-const mobileMenuBtn = document.querySelector(".mobile-menu-btn")
-const navLinks = document.querySelector(".nav-links")
+// Project Items Animation
+if (document.querySelector(".projects-container")) {
+    const projectItems = document.querySelectorAll(".project-item")
 
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active")
-        mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
-            ? '<i class="fas fa-times"></i>'
-            : '<i class="fas fa-bars"></i>'
-    })
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible")
+                }
+            })
+        },
+        { threshold: 0.1 },
+    )
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("active")
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>'
-        })
-    })
-}
-
-// Profile Card Animations
-if (document.querySelector(".profiles-container")) {
-    const profileCards = document.querySelectorAll(".profile-card")
-
-    profileCards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            card.classList.add("animate")
-            setTimeout(() => {
-                card.classList.remove("animate")
-            }, 800)
-        })
-    })
-}
-
-// Contact Form
-if (document.getElementById("contactForm")) {
-    const contactForm = document.getElementById("contactForm")
-
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault()
-
-        const name = document.getElementById("name").value
-        const email = document.getElementById("email").value
-        const subject = document.getElementById("subject").value
-        const message = document.getElementById("message").value
-
-        // Check for admin credentials
-        if (
-            name === "admin" &&
-            email === "admin@gmail.com" &&
-            subject === "i'm admin" &&
-            message === "i'm login admin page"
-        ) {
-            // Redirect to admin page
-            window.location.href = "/admin"
-            return
-        }
-
-        // Regular form submission
-        const submitBtn = this.querySelector(".submit-btn")
-        const originalText = submitBtn.innerHTML
-
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...'
-        submitBtn.disabled = true
-
-        // Simulate form submission
-        setTimeout(() => {
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!'
-            submitBtn.style.backgroundColor = "#28a745"
-
-            // Reset form
-            this.reset()
-
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText
-                submitBtn.disabled = false
-                submitBtn.style.backgroundColor = ""
-            }, 3000)
-        }, 2000)
+    projectItems.forEach((item) => {
+        observer.observe(item)
     })
 }
 

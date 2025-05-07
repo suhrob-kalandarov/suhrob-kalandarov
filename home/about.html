@@ -7,7 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/fragments/navbar.css">
+  <link rel="stylesheet" href="/assets/css/fragments/footer.css">
 </head>
 <body class="page-transition page-right">
 <!-- Loading Screen -->
@@ -22,22 +24,8 @@
   <i class="fas fa-moon"></i>
 </div>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <a href="index.html" class="logo">Suhrob Kalandarov</a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="experience.html">Experience</a>
-    <a href="projects.html">Projects</a>
-    <a href="profiles.html">Profiles</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="mobile-menu-btn">
-    <i class="fas fa-bars"></i>
-  </div>
-</nav>
+<!-- Include Navbar -->
+<div id="navbar-container"></div>
 
 <!-- About Section -->
 <section id="about" class="about page-content">
@@ -48,7 +36,7 @@
     </div>
     <div class="statement-container" data-aos="fade-up" data-aos-delay="200">
       <div class="statement" data-index="0">
-        <span>P</span><span>a</span><span>s</span><span>s</span><span>i</span><span>o</span><span>n</span><span>a</span><span>t</span><span>e</span> <span>a</span><span>b</span><span>o</span><span>u</span><span>t</span> <span>s</span><span>o</span><span>f</span><span>t</span><span>w</span><span>a</span><span>r</span><span>e</span> <span>c</span><span>r</span><span>a</span><span>f</span><span>t</span><span>s</span><span>m</span><span>a</span><span>n</span><span>s</span><span>h</span><span>i</span><span>p</span> <span>a</span><span>n</span><span>d</span> <span>s</span><span>o</span><span>l</span><span>v</span><span>i</span><span>n</span><span>g</span> <span>r</span><span>e</span><span>a</span><span>l</span> <span>p</span><span>r</span><span>o</span><span>b</span><span>l</span><span>e</span><span>m</span><spanspan>p</span><span>r</span><span>o</span><span>b</span><span>l</span><span>e</span><span>m</span><span>s</span>
+        <span>P</span><span>a</span><span>s</span><span>s</span><span>i</span><span>o</span><span>n</span><span>a</span><span>t</span><span>e</span> <span>a</span><span>b</span><span>o</span><span>u</span><span>t</span> <span>s</span><span>o</span><span>f</span><span>t</span><span>w</span><span>a</span><span>r</span><span>e</span> <span>c</span><span>r</span><span>a</span><span>f</span><span>t</span><span>s</span><span>m</span><span>a</span><span>n</span><span>s</span><span>h</span><span>i</span><span>p</span> <span>a</span><span>n</span><span>d</span> <span>s</span><span>o</span><span>l</span><span>v</span><span>i</span><span>n</span><span>g</span> <span>r</span><span>e</span><span>a</span><span>l</span> <span>p</span><span>r</span><span>o</span><span>b</span><span>l</span><span>e</span><span>m</span><span>s</span>
       </div>
       <div class="statement" data-index="1">
         <span>C</span><span>o</span><span>m</span><span>m</span><span>i</span><span>t</span><span>t</span><span>e</span><span>d</span> <span>t</span><span>o</span> <span>b</span><span>u</span><span>i</span><span>l</span><span>d</span><span>i</span><span>n</span><span>g</span> <span>p</span><span>r</span><span>o</span><span>d</span><span>u</span><span>c</span><span>t</span><span>s</span> <span>t</span><span>h</span><span>a</span><span>t</span> <span>u</span><span>s</span><span>e</span><span>r</span><span>s</span> <span>l</span><span>o</span><span>v</span><span>e</span> <span>a</span><span>n</span><span>d</span> <span>b</span><span>u</span><span>s</span><span>i</span><span>n</span><span>e</span><span>s</span><span>s</span><span>e</span><span>s</span> <span>t</span><span>r</span><span>u</span><span>s</span><span>t</span>
@@ -64,31 +52,12 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="placeholder.svg" alt="Logo">
-      </div>
-      <div class="footer-social">
-        <a href="mailto:suhrobqalandarov27@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://t.me/SuhrobKalandarov"><i class="fab fa-telegram"></i></a>
-        <a href="https://linkedin.com/in/suhrob-qalandarov-4a20b5293"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/suhrob-kalandarov"><i class="fab fa-github"></i></a>
-      </div>
-      <div class="footer-text">
-        <p>Tashkent, Uzbekistan</p>
-      </div>
-      <div class="footer-divider"></div>
-      <div class="footer-copyright">
-        <p>&copy; 2025 Suhrob Kalandarov. All rights reserved.</p>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- Include Footer -->
+<div id="footer-container"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="scripts.js"></script>
+<script src="/assets/js/scripts.js"></script>
+<script src="/assets/js/fragments/navbar.js"></script>
+<script src="/assets/js/fragments/footer.js"></script>
 </body>
 </html>
