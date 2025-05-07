@@ -151,11 +151,11 @@
 }
 
 .blue-title {
-    color: #e3f2fd; /* Changed from #1976d2 to white-blue */
+    color: #39a0d6; /* Changed from #1976d2 to white-blue */
 }
 
 .dark-blue-title {
-    color: #1a237e;
+    color: rgba(14, 101, 246, 0.78);
 }
 
 .experience-date {
@@ -247,12 +247,12 @@
 
 .promax-card .experience-skills span {
     background-color: rgba(26, 35, 126, 0.1);
-    color: #1a237e;
+    color: rgba(39, 112, 234, 0.82);
 }
 
 .promax-card .experience-skills span:hover {
-    background-color: #1a237e;
-    color: white;
+    background-color: rgba(53, 116, 221, 0.59);
+    color: rgba(39, 112, 234, 0.82);
     transform: translateY(-3px);
 }
 
