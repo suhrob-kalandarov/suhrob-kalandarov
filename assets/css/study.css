@@ -2,6 +2,8 @@
 .experience {
     background-color: #f8f9fa;
     position: relative;
+    /* Add padding to the bottom to create space for the wave overlap */
+    padding-bottom: 80px;
 }
 
 .dark-mode .experience {
@@ -272,6 +274,36 @@
     transform: scale(1.05);
 }
 
+/* Add this new section to make the Work Experience title overlap with the footer wave */
+.section-title {
+    position: relative;
+    z-index: 10; /* Higher z-index to appear above the footer wave */
+}
+
+/* Make the Work Experience text appear above the footer wave */
+#experience .section-title h2 {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* Create a special class for the footer overlap effect */
+.experience .container {
+    position: relative;
+}
+
+/* Position the section title to overlap with the footer wave */
+.experience .section-title {
+    position: relative;
+}
+
+/* Style for the Work Experience text that overlaps with the footer wave */
+.experience .section-title h2 {
+    color: #fff; /* White text color */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 30px;
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     .experience-card {
@@ -333,42 +365,5 @@
     .experience-skills span {
         padding: 5px 10px;
         font-size: 0.8rem;
-    }
-}
-
-/* Footer Wave Transition */
-.footer-wave-top {
-    position: relative;
-    width: 100%;
-    height: 150px;
-    color: #2a2f4f;
-    margin-bottom: -5px;
-    overflow: hidden;
-}
-
-.footer-wave-top svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-}
-
-/* Responsive adjustments for the wave */
-@media (max-width: 992px) {
-    .footer-wave-top {
-        height: 100px;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-wave-top {
-        height: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-wave-top {
-        height: 60px;
     }
 }
