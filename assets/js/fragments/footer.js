@@ -1,92 +1,88 @@
-// Load the footer component
 document.addEventListener("DOMContentLoaded", () => {
     const footerContainer = document.getElementById("footer-container")
 
-    if (footerContainer) {
-        // Fetch the footer HTML
-        fetch("footer.html")
-            .then((response) => response.text())
-            .then((html) => {
-                footerContainer.innerHTML = html
+    // Fetch and insert the footer content
+    fetch("/fragments/footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+            footerContainer.innerHTML = html
 
-                // Initialize footer functionality after loading
-                initFooter()
-            })
-            .catch((error) => {
-                console.error("Error loading footer:", error)
-                footerContainer.innerHTML = `
-          <footer class="footer">
-            <div class="footer-container">
-              <div class="footer-logo">
-                <img src="placeholder.svg" alt="Logo">
-              </div>
-              <div class="footer-content">
-                <div class="footer-links">
-                  <div class="footer-nav">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="skills.html">Skills</a>
-                    <a href="experience.html">Experience</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="profiles.html">Profiles</a>
-                    <a href="contact.html">Contact</a>
-                  </div>
-                  <div class="footer-social">
-                    <a href="mailto:suhrobqalandarov27@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://t.me/SuhrobKalandarov"><i class="fab fa-telegram"></i></a>
-                    <a href="https://linkedin.com/in/suhrob-qalandarov-4a20b5293"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/suhrob-kalandarov"><i class="fab fa-github"></i></a>
-                  </div>
-                </div>
-                <div class="footer-copyright">
-                  <p>&copy; 2025 Suhrob Kalandarov. All rights reserved.</p>
-                </div>
-              </div>
-            </div>
-          </footer>
-        `
-
-                // Initialize footer functionality with fallback
-                initFooter()
-            })
-    }
+            // After footer is loaded, initialize the back to top button
+            initBackToTop()
+        })
+        .catch((error) => {
+            console.error("Error loading footer:", error)
+            footerContainer.innerHTML = "<p>Error loading footer</p>"
+        })
 })
 
-// Initialize footer functionality
-function initFooter() {
-    // Replace placeholder images with actual images
-    const footerLogo = document.querySelector(".footer-logo img")
-    if (footerLogo) {
-        footerLogo.src = "https://via.placeholder.com/70x70/4b56d2/ffffff?text=SK"
+// Move the back to top initialization outside the fetch callback
+// so it runs even if the footer is already in the DOM
+window.addEventListener("DOMContentLoaded", () => {
+    // Wait a short time to ensure the footer is loaded
+    setTimeout(initBackToTop, 500)
+})
+
+// Initialize back to top button functionality
+function initBackToTop() {
+    const backToTopButton = document.querySelector(".back-to-top")
+    if (!backToTopButton) return
+
+    let lastScrollTop = 0
+    const scrollThreshold = 300
+    const bottomOffset = 840 // Distance from bottom in pixels
+
+    function updateButtonPosition() {
+        // Calculate position from bottom of document
+        const totalHeight = document.documentElement.scrollHeight
+        const viewportHeight = window.innerHeight
+        const currentScroll = window.scrollY
+
+        // Calculate how far we are from the bottom of the document
+        const distanceFromBottom = totalHeight - (currentScroll + viewportHeight)
+
+        // If we're close to the bottom, adjust the position to maintain the 840px from bottom
+        if (distanceFromBottom < bottomOffset) {
+            backToTopButton.style.bottom = `${bottomOffset - distanceFromBottom}px`
+        } else {
+            backToTopButton.style.bottom = "30px"
+        }
     }
 
-    // Add hover effects to footer links
-    const footerLinks = document.querySelectorAll(".footer-nav a")
-    footerLinks.forEach((link) => {
-        link.addEventListener("mouseenter", function () {
-            this.style.color = "#82c3ec"
-        })
+    function handleScroll() {
+        const currentScrollTop = window.scrollY || document.documentElement.scrollTop
 
-        link.addEventListener("mouseleave", function () {
-            this.style.color = ""
+        // Show button when scrolled down enough
+        if (currentScrollTop > scrollThreshold) {
+            // Only show when scrolling down
+            if (currentScrollTop > lastScrollTop) {
+                backToTopButton.classList.add("active")
+            } else {
+                // Hide when scrolling up
+                backToTopButton.classList.remove("active")
+            }
+
+            // Update button position
+            updateButtonPosition()
+        } else {
+            // Always hide when near the top
+            backToTopButton.classList.remove("active")
+        }
+
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop
+    }
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll)
+
+    // Add click event to scroll to top
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
         })
     })
 
-    // Add animation to social icons
-    const socialLinks = document.querySelectorAll(".footer-social a")
-    socialLinks.forEach((link) => {
-        link.addEventListener("mouseenter", function () {
-            const icon = this.querySelector("i")
-            if (icon) {
-                icon.style.transform = "scale(1.2)"
-            }
-        })
-
-        link.addEventListener("mouseleave", function () {
-            const icon = this.querySelector("i")
-            if (icon) {
-                icon.style.transform = ""
-            }
-        })
-    })
+    // Initial check
+    handleScroll()
 }
