@@ -7,18 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/fragments/navbar.css">
-    <link rel="stylesheet" href="/assets/css/fragments/footer.css">
-    <link rel="stylesheet" href="/assets/css/pages/contact.css">
-    <link rel="stylesheet" href="/assets/css/components/notifications.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assets/css/loading-animation.css">
 </head>
 <body class="page-transition page-left">
 <!-- Loading Screen -->
 <div class="loading-screen">
-    <div class="loader">
-        <div class="loader-text">Loading...</div>
-    </div>
+    <!-- The loading-animation.js will populate this -->
 </div>
 
 <!-- Theme Toggle -->
@@ -26,8 +21,22 @@
     <i class="fas fa-moon"></i>
 </div>
 
-<!-- Include Navbar -->
-<div id="navbar-container"></div>
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="index.html" class="logo">Suhrob Kalandarov</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="profiles.html">Profiles</a>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
 
 <!-- Contact Section -->
 <section id="contact" class="contact page-content">
@@ -98,13 +107,32 @@
     </div>
 </section>
 
-<!-- Include Footer -->
-<div id="footer-container"></div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="placeholder.svg" alt="Logo">
+            </div>
+            <div class="footer-social">
+                <a href="mailto:suhrobqalandarov27@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://t.me/SuhrobKalandarov"><i class="fab fa-telegram"></i></a>
+                <a href="https://linkedin.com/in/suhrob-qalandarov-4a20b5293"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/suhrob-kalandarov"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="footer-text">
+                <p>Tashkent, Uzbekistan</p>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Suhrob Kalandarov. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="/assets/js/scripts.js"></script>
-<script src="/assets/js/fragments/navbar.js"></script>
-<script src="/assets/js/fragments/footer.js"></script>
-<script src="/assets/js/contact.js"></script>
+<script src="scripts.js"></script>
+<script src="/assets/js/loading-animation.js"></script>
 </body>
 </html>
