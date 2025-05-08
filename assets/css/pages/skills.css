@@ -19,7 +19,7 @@
 }
 
 .right-column {
-    height: 100%;
+    height: 400px;
 }
 
 .skill-category {
@@ -103,7 +103,7 @@
 
 /* Others Section */
 .others-skill {
-    height: 100%;
+    height: 400px;
 }
 
 /* Extra Languages Section */
