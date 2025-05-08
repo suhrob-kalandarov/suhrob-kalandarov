@@ -54,27 +54,27 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Home</span>
                             </a>
-                            <a href="/home/about.html" class="footer-link">
+                            <a href="/about.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>About</span>
                             </a>
-                            <a href="/home/skills.html" class="footer-link">
+                            <a href="/skills.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Skills</span>
                             </a>
-                            <a href="/home/experience.html" class="footer-link">
+                            <a href="/experience.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Experience</span>
                             </a>
-                            <a href="/home/projects.html" class="footer-link">
+                            <a href="/projects.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Projects</span>
                             </a>
-                            <a href="/home/profiles.html" class="footer-link">
+                            <a href="/profiles.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Profiles</span>
                             </a>
-                            <a href="/home/contact.html" class="footer-link">
+                            <a href="/contact.html" class="footer-link">
                                 <i class="fas fa-chevron-right"></i>
                                 <span>Contact</span>
                             </a>
@@ -154,117 +154,117 @@ document.addEventListener("DOMContentLoaded", () => {
 // Initialize footer functionality
 function initFooter() {
     // Set current year in copyright
-    const currentYearElement = document.getElementById("current-year");
+    const currentYearElement = document.getElementById("current-year")
     if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
+        currentYearElement.textContent = new Date().getFullYear()
     }
 
     // Back to top button functionality
-    const backToTopButton = document.getElementById("backToTop");
+    const backToTopButton = document.getElementById("backToTop")
     if (backToTopButton) {
         // Show/hide back to top button based on scroll position
         window.addEventListener("scroll", () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.add("active");
+                backToTopButton.classList.add("active")
             } else {
-                backToTopButton.classList.remove("active");
+                backToTopButton.classList.remove("active")
             }
-        });
+        })
 
         // Scroll to top when button is clicked
         backToTopButton.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth"
-            });
-        });
+                behavior: "smooth",
+            })
+        })
     }
 
     // Add hover effects to footer links
-    const footerLinks = document.querySelectorAll(".footer-link");
+    const footerLinks = document.querySelectorAll(".footer-link")
     footerLinks.forEach((link) => {
-        link.addEventListener("mouseenter", function() {
-            const icon = this.querySelector("i");
+        link.addEventListener("mouseenter", function () {
+            const icon = this.querySelector("i")
             if (icon) {
-                icon.style.transform = "translateX(3px)";
+                icon.style.transform = "translateX(3px)"
             }
-        });
+        })
 
-        link.addEventListener("mouseleave", function() {
-            const icon = this.querySelector("i");
+        link.addEventListener("mouseleave", function () {
+            const icon = this.querySelector("i")
             if (icon) {
-                icon.style.transform = "";
+                icon.style.transform = ""
             }
-        });
-    });
+        })
+    })
 
     // Add animation to social icons
-    const socialIcons = document.querySelectorAll(".social-icon");
+    const socialIcons = document.querySelectorAll(".social-icon")
     socialIcons.forEach((icon) => {
-        icon.addEventListener("mouseenter", function() {
-            const iconInner = this.querySelector(".icon-inner");
+        icon.addEventListener("mouseenter", function () {
+            const iconInner = this.querySelector(".icon-inner")
             if (iconInner) {
-                iconInner.style.animation = "iconBounce 0.5s";
+                iconInner.style.animation = "iconBounce 0.5s"
             }
-        });
+        })
 
-        icon.addEventListener("mouseleave", function() {
-            const iconInner = this.querySelector(".icon-inner");
+        icon.addEventListener("mouseleave", function () {
+            const iconInner = this.querySelector(".icon-inner")
             if (iconInner) {
-                iconInner.style.animation = "";
+                iconInner.style.animation = ""
             }
-        });
-    });
+        })
+    })
 
     // Newsletter form submission
-    const newsletterForm = document.querySelector(".newsletter-form");
+    const newsletterForm = document.querySelector(".newsletter-form")
     if (newsletterForm) {
-        newsletterForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector("input[type='email']");
-            const email = emailInput.value.trim();
+        newsletterForm.addEventListener("submit", function (e) {
+            e.preventDefault()
+            const emailInput = this.querySelector("input[type='email']")
+            const email = emailInput.value.trim()
 
             if (email) {
                 // Show success message
-                const formGroup = this.querySelector(".form-group");
-                const successMessage = document.createElement("div");
-                successMessage.className = "success-message";
-                successMessage.textContent = "Thank you for subscribing!";
-                successMessage.style.color = "#82c3ec";
-                successMessage.style.marginTop = "10px";
-                successMessage.style.fontWeight = "500";
+                const formGroup = this.querySelector(".form-group")
+                const successMessage = document.createElement("div")
+                successMessage.className = "success-message"
+                successMessage.textContent = "Thank you for subscribing!"
+                successMessage.style.color = "#82c3ec"
+                successMessage.style.marginTop = "10px"
+                successMessage.style.fontWeight = "500"
 
                 // Remove any existing message
-                const existingMessage = formGroup.parentNode.querySelector(".success-message");
+                const existingMessage = formGroup.parentNode.querySelector(".success-message")
                 if (existingMessage) {
-                    existingMessage.remove();
+                    existingMessage.remove()
                 }
 
-                formGroup.parentNode.appendChild(successMessage);
+                formGroup.parentNode.appendChild(successMessage)
 
                 // Clear the input
-                emailInput.value = "";
+                emailInput.value = ""
 
                 // Remove the message after 3 seconds
                 setTimeout(() => {
-                    successMessage.remove();
-                }, 3000);
+                    successMessage.remove()
+                }, 3000)
             }
-        });
+        })
     }
 
     // Add animation to footer logo dot
-    const footerLogoDot = document.querySelector(".logo-dot");
+    const footerLogoDot = document.querySelector(".logo-dot")
     if (footerLogoDot) {
-        const footerLogo = document.querySelector(".footer-logo");
+        const footerLogo = document.querySelector(".footer-logo")
         if (footerLogo) {
             footerLogo.addEventListener("mouseenter", () => {
-                footerLogoDot.style.animation = "pulse 1s infinite";
-            });
+                footerLogoDot.style.animation = "pulse 1s infinite"
+            })
 
             footerLogo.addEventListener("mouseleave", () => {
-                footerLogoDot.style.animation = "pulse 2s infinite";
-            });
+                footerLogoDot.style.animation = "pulse 2s infinite"
+            })
         }
     }
 
