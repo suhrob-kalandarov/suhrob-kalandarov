@@ -52,21 +52,7 @@
 }
 
 /* Main Loader */
-.loader-wrapper {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
 
-.loader {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    perspective: 800px;
-}
 
 .cube {
     position: absolute;
