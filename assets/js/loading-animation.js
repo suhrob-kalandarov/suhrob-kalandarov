@@ -26,19 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Create hexagons for the background
-    const hexagonContainer = document.querySelector(".hexagon-container")
-    if (hexagonContainer) {
-        for (let i = 0; i < 20; i++) {
-            const hexagon = document.createElement("div")
-            hexagon.classList.add("hexagon")
-            hexagon.style.left = `${Math.random() * 100}%`
-            hexagon.style.top = `${Math.random() * 100}%`
-            hexagon.style.animationDelay = `${Math.random() * 2}s`
-            hexagonContainer.appendChild(hexagon)
-        }
-    }
-
     // Simulate loading progress
     let progress = 0
     const interval = setInterval(() => {
@@ -55,12 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Initialize AOS after loading
                 if (typeof AOS !== "undefined") {
-                    AOS.init({
-                        duration: 800,
-                        easing: "ease-in-out",
-                        once: true,
-                        mirror: false,
-                    })
+                    try {
+                        AOS.init({
+                            duration: 800,
+                            easing: "ease-in-out",
+                            once: true,
+                            mirror: false,
+                        })
+                    } catch (error) {
+                        console.error("AOS initialization failed:", error)
+                    }
                 }
             }, 500)
         }
