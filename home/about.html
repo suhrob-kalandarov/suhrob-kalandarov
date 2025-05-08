@@ -1,54 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Suhrob Kalandarov</title>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Animation Library -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="stylesheet" href="/assets/css/fragments/navbar.css">
-  <link rel="stylesheet" href="/assets/css/fragments/footer.css">
-  <link rel="stylesheet" href="/assets/css/pages/about.css">
-  <!-- Loading Animation -->
-  <link rel="stylesheet" href="/assets/css/loading-animation.css">
-</head>
-<body class="page-transition page-right">
-<!-- Loading Animation -->
-<div class="loading-screen">
-  <div class="hexagon-container"></div>
-  <div class="loader-wrapper">
-    <div class="loader">
-      <div class="cube">
-        <div class="cube-face"><div class="cube-inner"></div></div>
-        <div class="cube-face"><div class="cube-inner"></div></div>
-        <div class="cube-face"><div class="cube-inner"></div></div>
-        <div class="cube-face"><div class="cube-inner"></div></div>
-        <div class="cube-face"><div class="cube-inner"></div></div>
-        <div class="cube-face"><div class="cube-inner"></div></div>
-      </div>
-    </div>
-    <div class="page-name">About</div>
-    <div class="progress-container">
-      <div class="progress-bar"></div>
-    </div>
-    <div class="loading-text">LOADING</div>
-  </div>
-</div>
-
-<!-- Theme Toggle -->
-<div class="theme-toggle">
-  <i class="fas fa-moon"></i>
-</div>
-
-<!-- Include Navbar -->
-<div id="navbar-container"></div>
-
 <!-- About Section -->
 <section id="about" class="about page-content">
   <div class="section-bg-dots"></div>
@@ -68,20 +17,63 @@
       </div>
     </div>
     <div class="about-content" data-aos="fade-up" data-aos-delay="400">
-      <p>I'm a full-stack developer with a passion for creating elegant, efficient, and user-friendly applications. With expertise in both frontend and backend technologies, I enjoy tackling complex problems and turning ideas into reality.</p>
-      <p>My approach combines technical excellence with a deep understanding of user needs, ensuring that the products I build not only work flawlessly but also provide an exceptional user experience.</p>
+      <div class="about-grid">
+        <div class="about-image" data-aos="fade-right" data-aos-delay="500">
+          <img src="/assets/images/profile.jpg" alt="Suhrob Kalandarov" class="profile-image">
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="about-info" data-aos="fade-left" data-aos-delay="500">
+          <h3>Suhrob Kalandarov</h3>
+          <h4>Full-Stack Developer</h4>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Tashkent, Uzbekistan</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>contact@example.com</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>+998 90 123 4567</span>
+          </div>
+          <p>I'm a full-stack developer with a passion for creating elegant, efficient, and user-friendly applications. With expertise in both frontend and backend technologies, I enjoy tackling complex problems and turning ideas into reality.</p>
+          <p>My approach combines technical excellence with a deep understanding of user needs, ensuring that the products I build not only work flawlessly but also provide an exceptional user experience.</p>
+          <div class="skills-section">
+            <h4>Technical Skills</h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-node-js"></i>
+                <span>Node.js</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Include Footer -->
-<div id="footer-container"></div>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="/assets/js/scripts.js"></script>
-<script src="/assets/js/fragments/navbar.js"></script>
-<script src="/assets/js/fragments/footer.js"></script>
-<script src="/assets/js/loading-animation.js"></script>
-</body>
-</html>
