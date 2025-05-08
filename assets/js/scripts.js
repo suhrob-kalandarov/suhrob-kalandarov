@@ -1,9 +1,4 @@
-// Loading Screen
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.querySelector(".loading-screen").classList.add("hidden")
-    }, 1500)
-})
+
 
 // Theme Toggle
 const themeToggle = document.querySelector(".theme-toggle")
