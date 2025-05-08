@@ -53,16 +53,31 @@
     padding: 25px 15px;
     border-radius: 12px;
     transition: all 0.3s ease;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .skills .skill-item {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skills .skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .skills .skill-icon {
     font-size: 2.8rem;
     margin-bottom: 15px;
+    color: var(--accent-color);
 }
 
 .skills .skill-name {
     font-size: 1rem;
     font-weight: 600;
+    color: var(--text-color);
 }
 
 @media (max-width: 992px) {
