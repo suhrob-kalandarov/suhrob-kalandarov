@@ -4,18 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suhrob Kalandarov - Portfolio</title>
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animation Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Main Styles -->
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/fragments/navbar.css">
   <link rel="stylesheet" href="/assets/css/fragments/footer.css">
+  <!-- Loading Animation -->
   <link rel="stylesheet" href="/assets/css/loading-animation.css">
 </head>
 <body>
-<!-- Loading Screen -->
+<!-- Loading Animation -->
 <div class="loading-screen">
-  <!-- The loading-animation.js will populate this -->
+  <div class="hexagon-container"></div>
+  <div class="loader-wrapper">
+    <div class="loader">
+      <div class="cube">
+        <div class="cube-face"><div class="cube-inner"></div></div>
+        <div class="cube-face"><div class="cube-inner"></div></div>
+        <div class="cube-face"><div class="cube-inner"></div></div>
+        <div class="cube-face"><div class="cube-inner"></div></div>
+        <div class="cube-face"><div class="cube-inner"></div></div>
+        <div class="cube-face"><div class="cube-inner"></div></div>
+      </div>
+    </div>
+    <div class="page-name">Home</div>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="loading-text">LOADING</div>
+  </div>
 </div>
 
 <!-- Theme Toggle -->
@@ -255,6 +277,7 @@
 <!-- Include Footer -->
 <div id="footer-container"></div>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="/assets/js/scripts.js"></script>
 <script src="/assets/js/fragments/navbar.js"></script>
